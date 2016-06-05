@@ -24,6 +24,15 @@ Twilio: OK
 `gua`:
 `gua -v`: Verbose
 
+
+## Developer
+
+### Running tests
+
+`npm install --dev`
+`npm test`
+
+
 ## License
 
 Copyright © 2016 jskulski

@@ -1,0 +1,23 @@
+{
+  "name": "gua",
+  "version": "0.1.0",
+  "description": "Know the status of all the services you depend on",
+  "main": "src/initial.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jskulski/gua.git"
+  },
+  "author": "Jon Skulski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jskulski/gua/issues"
+  },
+  "homepage": "https://github.com/jskulski/gua#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
