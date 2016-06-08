@@ -18,10 +18,20 @@ Twilio: OK
 
 ## Usage
 
+Right now (temporary):
+
+```
+$ node cli.js
+```
+
+Where we're going:
+
 `/etc/guarc`
+
 `~/.guarc`
 
 `gua`:
+
 `gua -v`: Verbose
 
 
