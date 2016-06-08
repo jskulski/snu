@@ -2,15 +2,22 @@
   "name": "gua",
   "version": "0.1.0",
   "description": "Know the status of all the services you depend on",
-  "main": "src/initial.js",
+  "main": "",
+  "bin": {
+    "gua": "gua.js"
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha spec.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jskulski/gua.git"
   },
-  "author": "Jon Skulski",
+  "author": {
+    "name": "Jon Skulski",
+    "email": "jskulski@gmail.com",
+    "url": "jonskulski.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jskulski/gua/issues"
@@ -18,6 +25,12 @@
   "homepage": "https://github.com/jskulski/gua#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "xo": "^0.15.1"
+  },
+  "dependencies": {
+    "enum": "^2.3.0",
+    "nock": "^8.0.0",
+    "ramda": "^0.21.0"
   }
 }
