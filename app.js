@@ -1,6 +1,7 @@
 const R = require('ramda');
 const fetch = require('node-fetch');
 const invariant = require('invariant');
+const chalk = require('chalk');
 
 const gua = require('./gua');
 
@@ -22,20 +23,21 @@ function go(config) {
     return map[indicator] ? map[indicator] : Color('black');
   }
   
-  
   function parse(status) { 
     const color = mapColor(status.status.indicator);
     return gua.Indicator('quay', color);
   }
   
   function render(indicator) { 
-    if (indicator.color == gua.Color('green')) { 
-      console.log(indicator.key + ': OK');
+    const chalk = require('chalk');
+
+    if (indicator.color != gua.Color('green')) { 
+      console.log(chalk.green(indicator.key + ': OK'));
     }
     else { 
-      console.log('vvvvvvv');
-      console.log(indicator.key, ': NOT OK');
-      console.log('^^^^^^');
+      console.log(chalk.bold.red('vvvvvvv'))
+      console.log(chalk.red(indicator.key, ': NOT OK'))
+      console.log(chalk.bold.red('^^^^^^'))
     }
   }
 
