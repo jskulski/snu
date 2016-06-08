@@ -2,7 +2,10 @@ const nock = require('nock');
 const assert = require('chai').assert;
 
 
-
+/**
+ * TESTS ARE BROKEN UNTIL FURTHER NOTICE. 
+ * (SIDE EFFECTS IN SIDE EFFECT ZONE)
+ */
 const app = require('./app');
 const gua = require('./gua');
 
