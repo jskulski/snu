@@ -7,8 +7,8 @@ const chalk = require('chalk');
 const gua = require('./gua');
 
 // TODO: better name for indicator on our side?
-function mapColor(indicator) { 
-  const map = { 
+function mapColor(indicator) {
+  const map = {
     'none': gua.Color('green'),
     'minor': gua.Color('yellow'),
     'major': gua.Color('red'),
@@ -16,16 +16,16 @@ function mapColor(indicator) {
   return map[indicator] ? map[indicator] : Color('black');
 }
 
-function parse(status) { 
+function parse(status) {
   const color = mapColor(status.status.indicator);
   return gua.Indicator(status.page.name, color);
 }
 
-function render(indicator) { 
-  if (indicator.color == gua.Color('green')) { 
+function render(indicator) {
+  if (indicator.color == gua.Color('green')) {
     console.log(chalk.green(indicator.key + ': OK'));
   }
-  else { 
+  else {
     console.log(chalk.bold.red('vvvvvvv'))
     console.log(chalk.red(indicator.key, ': NOT OK'))
     console.log(chalk.bold.red('^^^^^^'))
@@ -33,7 +33,7 @@ function render(indicator) {
 }
 
 
-function report(url) { 
+function report(url) {
   fetch(url)
     .then((res) => res.json())
     .then((json) => parse(json))
@@ -43,6 +43,7 @@ function report(url) {
 
 function go(config) {
   const configKeyServiceMap = {
+    'aptible': 'http://status.aptible.com/index.json',
     'quay': 'http://status.quay.io/index.json',
     'circleci': 'https://circleci.statuspage.io/index.json',
     'vimeo': 'http://www.vimeostatus.com/index.json',
@@ -55,18 +56,18 @@ function go(config) {
     'kickstarter': 'http://status.kickstarter.com/index.json',
     'kmstatus': 'https://kmstatus.com/index.json',
     'gotomeeting': 'http://status.gotomeeting.com/index.json',
-    'parse': 'https://status.parse.com/'
+    'parse': 'https://status.parse.com/index.json'
   };
-  
-  const pickServices = R.compose(R.values, R.pickAll);
+
+  const pickServices = R.compose(R.values, R.pick);
   var services = pickServices(config, configKeyServiceMap)
-  
-  const DEBUG = true;
+
+  const DEBUG = false;
   if (DEBUG) {
     services = R.values(configKeyServiceMap);
   }
-  
+
   R.map(report, services);
 }
 
-go(['quay', 'circleci']);
+go(['aptible', 'quay', 'circleci']);
