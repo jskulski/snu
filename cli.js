@@ -56,7 +56,8 @@ function go(config) {
     'kickstarter': 'http://status.kickstarter.com/index.json',
     'kmstatus': 'https://kmstatus.com/index.json',
     'gotomeeting': 'http://status.gotomeeting.com/index.json',
-    'parse': 'https://status.parse.com/index.json'
+    'parse': 'https://status.parse.com/index.json',
+    'twilio': 'https://status.twilio.com/index.json'
   };
 
   const pickServices = R.compose(R.values, R.pick);
