@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased][unreleased]
 ### Changed
+- Added twilio as service
+
+## [Unreleased][unreleased]
+### Changed
 - Added basic functionality to fetch and parse Statuspage.io subscriber's status
 - These include:
     aptible
