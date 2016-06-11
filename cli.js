@@ -34,31 +34,40 @@ function render(indicator) {
 }
 
 
-function report(url) {
-  fetch(url)
+// gatherReport = Service -> Indicator
+function gatherReport(service) {
+  fetch(service.url)
     .then((res) => res.json())
     .then((json) => parse(json))
-    .then((indicator) => render(indicator));
+    .then((indicator) => render(indicator))
+    .catch((error) => console.log('error fetching '+ service.key +': ' + error));
 }
 
 
 function go(config) {
+  function Service(key, url) {
+    return {
+      'key': key,
+      'url': url
+    }
+  }
+
   const configKeyServiceMap = {
-    'aptible': 'http://status.aptible.com/index.json',
-    'quay': 'http://status.quay.io/index.json',
-    'circleci': 'https://circleci.statuspage.io/index.json',
-    'vimeo': 'http://www.vimeostatus.com/index.json',
-    'travisci': 'https://www.traviscistatus.com/index.json',
-    'uservoice': 'https://status.uservoice.com/index.json',
-    'hipchat': 'https://status.hipchat.com/index.json',
-    'newrelic': 'https://status.newrelic.com/index.json',
-    'bitbucket': 'http://status.bitbucket.org/index.json',
-    'disqus': 'https://status.disqus.com/index.json',
-    'kickstarter': 'http://status.kickstarter.com/index.json',
-    'kmstatus': 'https://kmstatus.com/index.json',
-    'gotomeeting': 'http://status.gotomeeting.com/index.json',
-    'parse': 'https://status.parse.com/index.json',
-    'twilio': 'https://status.twilio.com/index.json'
+    'aptible': Service('aptible', 'http://status.aptible.com/index.json'),
+    'quay': Service('quay', 'http://status.quay.io/index.json'),
+    'circleci': Service('circleci', 'https://circleci.statuspage.io/index.json'),
+    'vimeo': Service('vimeo', 'http://www.vimeostatus.com/index.json'),
+    'travisci': Service('travisci', 'https://www.traviscistatus.com/index.json'),
+    'uservoice': Service('uservoice', 'https://status.uservoice.com/index.json'),
+    'hipchat': Service('hipchat', 'https://status.hipchat.com/index.json'),
+    'newrelic': Service('newrelic', 'https://status.newrelic.com/index.json'),
+    'bitbucket': Service('bitbucket', 'http://status.bitbucket.org/index.json'),
+    'disqus': Service('disqus', 'https://status.disqus.com/index.json'),
+    'kickstarter': Service('kickstarter', 'http://status.kickstarter.com/index.json'),
+    'kmstatus': Service('kmstatus', 'https://kmstatus.com/index.json'),
+    'gotomeeting': Service('gotomeeting', 'http://status.gotomeeting.com/index.json'),
+    'parse': Service('parse', 'https://status.parse.com/index.json'),
+    'twilio': Service('twilio', 'https://status.twilio.com/index.json')
   };
 
   const pickServices = R.compose(R.values, R.pick);
@@ -71,7 +80,7 @@ function go(config) {
     services = pickServices(config, configKeyServiceMap)
   }
 
-  R.map(report, services);
+  R.map(gatherReport, services);
 }
 
 go();

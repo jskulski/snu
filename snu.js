@@ -1,5 +1,6 @@
 const invariant = require('invariant');
 
+
 // data = 'green' || 'yellow' || 'red'
 function Color(name) {
   invariant(name == 'green' || name == 'yellow' || name == 'red', 'Color name not appropriate');
