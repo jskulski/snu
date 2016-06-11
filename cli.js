@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict'
 const R = require('ramda');
 const fetch = require('node-fetch');
