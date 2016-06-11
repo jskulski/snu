@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## [Unreleased][unreleased]
+### Changed
+- `npm test` is now just running the program (this will change soon but spec.js is broken)
+
 ## [0.2.1] - 2016-06-11
 ### Changed
 - README to better mirror instructions
