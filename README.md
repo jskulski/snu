@@ -54,7 +54,8 @@ Towards v1.0.0:
 Features Wishlist:
 - Verbose option (tell me just about whats broken vs full report)
 
-Engineering Changes:
+Engineering Wishlist:
+- Move non-cli code from cli.js to snu.js
 - Color.green over Color('green')
 
 ## License
