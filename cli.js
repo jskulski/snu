@@ -45,6 +45,9 @@ function gatherReport(service) {
 
 
 function go(config) {
+
+  // data URL String
+  // data Service = String | URL
   function Service(key, url) {
     return {
       'key': key,
@@ -52,35 +55,34 @@ function go(config) {
     }
   }
 
-  const configKeyServiceMap = {
-    'aptible': Service('aptible', 'http://status.aptible.com/index.json'),
-    'quay': Service('quay', 'http://status.quay.io/index.json'),
-    'circleci': Service('circleci', 'https://circleci.statuspage.io/index.json'),
-    'vimeo': Service('vimeo', 'http://www.vimeostatus.com/index.json'),
-    'travisci': Service('travisci', 'https://www.traviscistatus.com/index.json'),
-    'uservoice': Service('uservoice', 'https://status.uservoice.com/index.json'),
-    'hipchat': Service('hipchat', 'https://status.hipchat.com/index.json'),
-    'newrelic': Service('newrelic', 'https://status.newrelic.com/index.json'),
-    'bitbucket': Service('bitbucket', 'http://status.bitbucket.org/index.json'),
-    'disqus': Service('disqus', 'https://status.disqus.com/index.json'),
-    'kickstarter': Service('kickstarter', 'http://status.kickstarter.com/index.json'),
-    'kmstatus': Service('kmstatus', 'https://kmstatus.com/index.json'),
-    'gotomeeting': Service('gotomeeting', 'http://status.gotomeeting.com/index.json'),
-    'parse': Service('parse', 'https://status.parse.com/index.json'),
-    'twilio': Service('twilio', 'https://status.twilio.com/index.json')
-  };
+  const allServices = [
+    Service('aptible', 'http://status.aptible.com/index.json'),
+    Service('quay', 'http://status.quay.io/index.json'),
+    Service('circleci', 'https://circleci.statuspage.io/index.json'),
+    Service('vimeo', 'http://www.vimeostatus.com/index.json'),
+    Service('travisci', 'https://www.traviscistatus.com/index.json'),
+    Service('uservoice', 'https://status.uservoice.com/index.json'),
+    Service('hipchat', 'https://status.hipchat.com/index.json'),
+    Service('newrelic', 'https://status.newrelic.com/index.json'),
+    Service('bitbucket', 'http://status.bitbucket.org/index.json'),
+    Service('disqus', 'https://status.disqus.com/index.json'),
+    Service('kickstarter', 'http://status.kickstarter.com/index.json'),
+    Service('kmstatus', 'https://kmstatus.com/index.json'),
+    Service('gotomeeting', 'http://status.gotomeeting.com/index.json'),
+    Service('parse', 'https://status.parse.com/index.json'),
+    Service('twilio', 'https://status.twilio.com/index.json')
+  ];
 
-  const pickServices = R.compose(R.values, R.pick);
-
-  var services;
+  var requestedServices;
   if (!config || config.length == 0) {
-    services = R.values(configKeyServiceMap);
+    requestedServices = R.values(allServices);
   }
   else {
-    services = pickServices(config, configKeyServiceMap)
+    const inConfig = (svc) => R.contains(svc.key, config),
+    requestedServices = R.filter(inConfig, allServices);
   }
 
-  R.map(gatherReport, services);
+  R.map(gatherReport, requestedServices);
 }
 
-go();
+go([]);
