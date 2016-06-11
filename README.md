@@ -1,10 +1,10 @@
-# gua
+# snu
 
 Your system depends on a lot.
 Know the whole picture.
 
 ```
-$ gua -v
+$ snu -v
 Quay.io: OK
 Github.com: OK
 Circleci: OK
@@ -26,13 +26,13 @@ $ node cli.js
 
 Where we're going:
 
-`/etc/guarc`
+`/etc/snurc`
 
-`~/.guarc`
+`~/.snurc`
 
-`gua`:
+`snu`:
 
-`gua -v`: Verbose
+`snu -v`: Verbose
 
 
 ## Developer

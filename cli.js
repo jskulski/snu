@@ -4,25 +4,25 @@ const fetch = require('node-fetch');
 const invariant = require('invariant');
 const chalk = require('chalk');
 
-const gua = require('./gua');
+const snu = require('./snu');
 
 // TODO: better name for indicator on our side?
 function mapColor(indicator) {
   const map = {
-    'none': gua.Color('green'),
-    'minor': gua.Color('yellow'),
-    'major': gua.Color('red'),
+    'none': snu.Color('green'),
+    'minor': snu.Color('yellow'),
+    'major': snu.Color('red'),
   }
   return map[indicator] ? map[indicator] : Color('black');
 }
 
 function parse(status) {
   const color = mapColor(status.status.indicator);
-  return gua.Indicator(status.page.name, color);
+  return snu.Indicator(status.page.name, color);
 }
 
 function render(indicator) {
-  if (indicator.color == gua.Color('green')) {
+  if (indicator.color == snu.Color('green')) {
     console.log(chalk.green(indicator.key + ': OK'));
   }
   else {

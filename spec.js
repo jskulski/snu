@@ -7,7 +7,7 @@ const assert = require('chai').assert;
  * (SIDE EFFECTS IN SIDE EFFECT ZONE)
  */
 const app = require('./app');
-const gua = require('./gua');
+const snu = require('./snu');
 
 describe('Acceptance', () => {
 
@@ -27,7 +27,7 @@ describe('Acceptance', () => {
 
     const indicators = app(config);
 
-    assert.deepEqual(indicators, [gua.Indicator(QUAY, 'green')])
+    assert.deepEqual(indicators, [snu.Indicator(QUAY, 'green')])
   });
 
   it('should parse MINOR issue statuspage.io response', () => {
@@ -35,7 +35,7 @@ describe('Acceptance', () => {
 
     const indicators = app(config);
 
-    assert.deepEqual(indicators, [gua.Indicator(QUAY, 'yellow')])
+    assert.deepEqual(indicators, [snu.Indicator(QUAY, 'yellow')])
   });
 
   it('should parse MAJOR issue statuspage.io response', () => {
@@ -43,7 +43,7 @@ describe('Acceptance', () => {
 
     const indicators = app(config);
 
-    assert.deepEqual(indicators, [gua.Indicator(QUAY, 'red')])
+    assert.deepEqual(indicators, [snu.Indicator(QUAY, 'red')])
   });
 
   it('should parse UNKNOWN issue statuspage.io response', () => {
@@ -51,7 +51,7 @@ describe('Acceptance', () => {
 
     const indicators = app(config);
 
-    assert.deepEqual(indicators, [gua.Indicator(QUAY, 'black')])
+    assert.deepEqual(indicators, [snu.Indicator(QUAY, 'black')])
   });
 
 });

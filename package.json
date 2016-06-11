@@ -1,17 +1,17 @@
 {
-  "name": "gua",
+  "name": "snu",
   "version": "0.1.0",
   "description": "Know the status of all the services you depend on",
   "main": "",
   "bin": {
-    "gua": "gua.js"
+    "snu": "snu.js"
   },
   "scripts": {
     "test": "mocha spec.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jskulski/gua.git"
+    "url": "git+https://github.com/jskulski/snu.git"
   },
   "author": {
     "name": "Jon Skulski",
@@ -20,9 +20,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jskulski/gua/issues"
+    "url": "https://github.com/jskulski/snu/issues"
   },
-  "homepage": "https://github.com/jskulski/gua#readme",
+  "homepage": "https://github.com/jskulski/snu#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
