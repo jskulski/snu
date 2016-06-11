@@ -3,7 +3,8 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased][unreleased]
 ### Changed
-- `npm test` is now just running the program (this will change soon but spec.js is broken)
+- `npm test` is now just running the program
+- Adding concept of Service
 
 ## [0.2.1] - 2016-06-11
 ### Changed
