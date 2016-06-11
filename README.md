@@ -43,13 +43,12 @@ CircleCI: OK
 ### Roadmap
 
 Towards v1.0.0:
-- Generate and read config from ~/.snurc
 - New Service: github
 - New Service: aws
+- Generate and read config from ~/.snurc
 
 Features Wishlist:
 - Verbose option (tell me just about whats broken vs full report)
-
 
 ## License
 
