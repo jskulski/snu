@@ -34,6 +34,10 @@ CircleCI: OK
 
 ## Developer
 
+### Contributing
+
+PRs welcomed. Parsing other services especially.
+
 ### Running tests
 
 `npm install --dev`
