@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 ### Changed
 - `npm test` is now just running the program
 - Adding concept of Service
+- Cleaning up config/service interface
 
 ## [0.2.1] - 2016-06-11
 ### Changed
