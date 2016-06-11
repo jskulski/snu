@@ -33,6 +33,14 @@ function render(indicator) {
   }
 }
 
+// data URL String
+// data Service = String | URL
+function Service(key, url) {
+  return {
+    'key': key,
+    'url': url
+  }
+}
 
 // gatherReport = Service -> Indicator
 function gatherReport(service) {
@@ -45,15 +53,6 @@ function gatherReport(service) {
 
 
 function go(config) {
-
-  // data URL String
-  // data Service = String | URL
-  function Service(key, url) {
-    return {
-      'key': key,
-      'url': url
-    }
-  }
 
   const allServices = [
     Service('aptible', 'http://status.aptible.com/index.json'),
