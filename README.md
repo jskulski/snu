@@ -4,36 +4,33 @@ Your system depends on a lot.
 Know the whole picture.
 
 ```
-$ snu -v
+$ snu
 Quay.io: OK
 Github.com: OK
-Circleci: OK
 !!
 Flakr: MAJOR ISSUES:
 http://status.flakr.com/issue
 "We have temporarily disabled repository imports while we investigate an internal error."
 !!
+Circleci: OK
 Twilio: OK
 ```
 
-## Usage
+## Installation and usage
 
-Right now (temporary):
+Prerequisites: reasonablely recent versions of `node`, `npm`
 
 ```
-$ node cli.js
+$ npm install -g snu
+/usr/local/bin/snu -> /usr/local/lib/node_modules/snu/cli.js
+/usr/local/lib
+└── snu@0.2.0
+
+$ snu
+Quay.io: OK
+Aptible: OK
+CircleCI: OK
 ```
-
-Where we're going:
-
-`/etc/snurc`
-
-`~/.snurc`
-
-`snu`:
-
-`snu -v`: Verbose
-
 
 ## Developer
 
@@ -41,6 +38,17 @@ Where we're going:
 
 `npm install --dev`
 `npm test`
+
+
+### Roadmap
+
+Towards v1.0.0:
+- Generate and read config from ~/.snurc
+- New Service: github
+- New Service: aws
+
+Features Wishlist:
+- Verbose option (tell me just about whats broken vs full report)
 
 
 ## License

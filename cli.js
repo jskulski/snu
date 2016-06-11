@@ -62,14 +62,16 @@ function go(config) {
   };
 
   const pickServices = R.compose(R.values, R.pick);
-  var services = pickServices(config, configKeyServiceMap)
 
-  const DEBUG = false;
-  if (DEBUG) {
+  var services;
+  if (!config || config.length == 0) {
     services = R.values(configKeyServiceMap);
+  }
+  else {
+    services = pickServices(config, configKeyServiceMap)
   }
 
   R.map(report, services);
 }
 
-go(['aptible', 'quay', 'circleci']);
+go();
