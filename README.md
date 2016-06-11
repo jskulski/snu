@@ -50,6 +50,9 @@ Towards v1.0.0:
 Features Wishlist:
 - Verbose option (tell me just about whats broken vs full report)
 
+Engineering Changes:
+- Color.green over Color('green')
+
 ## License
 
 Copyright © 2016 jskulski
