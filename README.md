@@ -1,5 +1,7 @@
 # snu
 
+[![Build Status](https://travis-ci.org/jskulski/snu.svg?branch=master)](https://travis-ci.org/jskulski/snu)
+
 Your system depends on a lot.
 Know the whole picture.
 
@@ -15,9 +17,6 @@ http://status.flakr.com/issue
 Circleci: OK
 Twilio: OK
 ```
-
-[![Build Status](https://travis-ci.org/jskulski/snu.svg?branch=master)](https://travis-ci.org/jskulski/snu)
-
 
 ## Installation and usage
 
