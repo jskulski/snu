@@ -47,9 +47,9 @@ PRs welcomed. Parsing other services especially.
 ### Roadmap
 
 Towards v1.0.0:
-- New Service: github
 - New Service: aws
 - Generate and read config from ~/.snurc
+[x] New Service: github
 
 Features Wishlist:
 - Verbose option (tell me just about whats broken vs full report)
