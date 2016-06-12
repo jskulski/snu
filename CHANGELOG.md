@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## [Unreleased]
+### Changed
+
+## [0.4.0] - 2016-06-11
+### Changed
+- Fixed tests and built suite to test Github and Statuspage parsers
+- Moving to explicit human readable Label
+- Added some vscode/ms javascript config.
+
 ## [0.3.0] - 2016-06-11
 ### Added
 - Adding concept of Service, with allows specification of parsing
