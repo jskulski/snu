@@ -1,10 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased][unreleased]
+## [0.3.0] - 2016-06-11
+### Added
+- Adding concept of Service, with allows specification of parsing
+- Added `github` as service
+
 ### Changed
-- `npm test` is now just running the program
-- Adding concept of Service
+- `npm test` is now just running the program until spec.js is in order
 - Cleaning up config/service interface
 
 ## [0.2.1] - 2016-06-11
