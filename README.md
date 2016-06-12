@@ -47,7 +47,7 @@ PRs welcomed. Parsing other services especially.
 ### Roadmap
 
 Towards v1.0.0:
-- [ ] New Service: aws
+- [ ] New Service: aws (How do we handle the multitudes of services/status? Two configs?)
 - [ ] Generate and read config from ~/.snurc
 - [ ] Test and make sure errors are reported
 - [ ] Give user more information
