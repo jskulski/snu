@@ -17,37 +17,46 @@ function mapColor(indicator) {
   return map[indicator] ? map[indicator] : Color('black');
 }
 
-function parse(status) {
+// parseJSON :: StatusPageIOJSON -> Indicator
+function parseJSON(status) {
   const color = mapColor(status.status.indicator);
   return snu.Indicator(status.page.name, color);
 }
 
-function render(indicator) {
+// data Parser = Promise -> Indicator
+// data URL String
+// data Service = String | URL | Parser
+function Service(key, url, parser) {
+  return {
+    'key': key,
+    'url': url,
+    'parseJSON': parseJSON
+  }
+}
+
+// renderToConsole :: Indicator -> ConsoleIO (Side effect)
+function renderToConsole(indicator) {
+  // console.log('renderToConsole: ', indicator);
   if (indicator.color == snu.Color('green')) {
     console.log(chalk.green(indicator.key + ': OK'));
   }
   else {
-    console.log(chalk.bold.red('vvvvvvv'))
-    console.log(chalk.red(indicator.key, ': NOT OK'))
-    console.log(chalk.bold.red('^^^^^^'))
+    console.log(chalk.bold.red('vvvvvvv'));
+    console.log(chalk.red(indicator.key, ': NOT OK'));
+    console.log('indicator: ', indicator)
+    console.log(chalk.bold.red('^^^^^^'));
   }
 }
 
-// data URL String
-// data Service = String | URL
-function Service(key, url) {
-  return {
-    'key': key,
-    'url': url
-  }
-}
-
-// gatherReport = Service -> Indicator
-function gatherReport(service) {
+// gatherReport :: Renderer -> Service -> Indicator (Side effect)
+function gatherReport(renderer, service) {
+  // console.log('renderer', renderer);
+  // console.log('service', service)
   fetch(service.url)
-    .then((res) => res.json())
-    .then((json) => parse(json))
-    .then((indicator) => render(indicator))
+    .then((resp) => resp.json()) // TODO: pass promise around to allow other methods than JSON?
+    .then(service.parseJSON)
+    // .then(t => console.log('test', t))
+    .then(renderer)
     .catch((error) => console.log('error fetching '+ service.key +': ' + error));
 }
 
@@ -81,7 +90,8 @@ function go(config) {
     requestedServices = R.filter(inConfig, allServices);
   }
 
-  R.map(gatherReport, requestedServices);
+  const renderReport = R.curry(gatherReport)(renderToConsole);
+  R.map(renderReport, requestedServices)
 }
 
 go([]);
