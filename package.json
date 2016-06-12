@@ -7,7 +7,7 @@
     "snu": "cli.js"
   },
   "scripts": {
-    "test": "node cli.js"
+    "test": "mocha spec.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "nock": "^8.0.0"
+    "nock": "^8.0.0",
+    "sinon": "^1.17.4"
   },
   "dependencies": {
     "chalk": "^1.1.3",
