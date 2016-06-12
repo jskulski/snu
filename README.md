@@ -49,16 +49,16 @@ PRs welcomed. Parsing other services especially.
 Towards v1.0.0:
 - [ ] New Service: aws (How do we handle the multitudes of services/status? Two configs?)
 - [ ] Generate and read config from ~/.snurc
-- [ ] Test and make sure errors are reported
 - [ ] Give user more information
+- [x] Test and make sure errors are reported
 - [x] New Service: github
 
 Features Wishlist:
 - [ ] Verbose option (tell me just about whats broken vs full report)
 
 Engineering Wishlist:
-- [ ] Move non-cli code from cli.js to snu.js
 - [ ] Color.green over Color('green')
+- [x] Move non-cli code from cli.js to snu.js
 
 ## License
 
