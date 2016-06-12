@@ -43,12 +43,12 @@ function Service(key, label, url, parser) {
   }
 }
 
-// data GithubService = Key | Url
+// data GithubService = Service
 function GithubService(key, url) {
 
   const label = 'Github';
 
-  // TODO: better name for indicator on our side?
+  // _mapColor :: String -> Color
   function _mapColor(indicator) {
     const map = {
       'good': Color('green'),
@@ -68,9 +68,10 @@ function GithubService(key, url) {
   return Service(key, label, url, _parseJSON);
 }
 
-// data StatuspageIOService = Key | Label | Url
+// data StatuspageIOService = Service
 function StatuspageIOService(key, label, url) {
-  // TODO: better name for indicator on our side?
+
+  // _mapColor :: String -> Color
   function _mapColor(indicator) {
     const map = {
       'none': Color('green'),

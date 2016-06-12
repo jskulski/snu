@@ -146,3 +146,27 @@ describe('Github parser', () => {
 });
 
 
+/**
+ * These 'tests' spit out for the human eye to verify.
+ */
+const renderToConsole = require('./renderers').renderToConsole;
+
+describe('Console Renderer', function() {
+  it('should render an GREEN event', () => {
+    const indicator = Indicator('key', 'Label', Color('green'))
+    renderToConsole(indicator);
+  });
+
+  it('should render an YELLOW event', () => {
+    const indicator = Indicator('key', 'Label', Color('yellow'))
+    renderToConsole(indicator);
+  });
+  it('should render an RED event', () => {
+    const indicator = Indicator('key', 'Label', Color('red'))
+    renderToConsole(indicator);
+  });
+  it('should render an BLACK event', () => {
+    const indicator = Indicator('key', 'Label', Color('black'))
+    renderToConsole(indicator);
+  });
+});
