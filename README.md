@@ -16,6 +16,9 @@ Circleci: OK
 Twilio: OK
 ```
 
+[![Build Status](https://travis-ci.org/jskulski/snu.svg?branch=master)](https://travis-ci.org/jskulski/snu)
+
+
 ## Installation and usage
 
 Prerequisites: reasonablely recent versions of `node`, `npm`
