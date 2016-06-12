@@ -47,16 +47,18 @@ PRs welcomed. Parsing other services especially.
 ### Roadmap
 
 Towards v1.0.0:
-- New Service: aws
-- Generate and read config from ~/.snurc
-[x] New Service: github
+- [ ] New Service: aws
+- [ ] Generate and read config from ~/.snurc
+- [ ] Test and make sure errors are reported
+- [ ] Give user more information
+- [x] New Service: github
 
 Features Wishlist:
-- Verbose option (tell me just about whats broken vs full report)
+- [ ] Verbose option (tell me just about whats broken vs full report)
 
 Engineering Wishlist:
-- Move non-cli code from cli.js to snu.js
-- Color.green over Color('green')
+- [ ] Move non-cli code from cli.js to snu.js
+- [ ] Color.green over Color('green')
 
 ## License
 
