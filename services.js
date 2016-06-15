@@ -6,22 +6,22 @@ const Color = require('./snu').Color;
 const Indicator = require('./snu').Indicator;
 
 const AllServices = [
-  GithubService('github', 'https://status.github.com/api/messages.json'),
-  StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com/index.json'),
-  StatuspageIOService('quay', 'Quay',  'http://status.quay.io/index.json'),
-  StatuspageIOService('circleci', 'CircleCI',  'https://circleci.statuspage.io/index.json'),
-  StatuspageIOService('vimeo', 'Vimeo',  'http://www.vimeostatus.com/index.json'),
-  StatuspageIOService('travisci', 'TravisCI',  'https://www.traviscistatus.com/index.json'),
-  StatuspageIOService('uservoice', 'UserVoice',  'https://status.uservoice.com/index.json'),
-  StatuspageIOService('hipchat', 'HipChat',  'https://status.hipchat.com/index.json'),
-  StatuspageIOService('newrelic', 'New Relic',  'https://status.newrelic.com/index.json'),
-  StatuspageIOService('bitbucket', 'Bitbucket',  'http://status.bitbucket.org/index.json'),
-  StatuspageIOService('disqus', 'Disqus',  'https://status.disqus.com/index.json'),
-  StatuspageIOService('kickstarter', 'Kickstarter',  'http://status.kickstarter.com/index.json'),
-  StatuspageIOService('kmstatus', 'KMstatus',  'https://kmstatus.com/index.json'),
-  StatuspageIOService('gotomeeting', 'Goto Meeting',  'http://status.gotomeeting.com/index.json'),
-  StatuspageIOService('parse', 'Parse',  'https://status.parse.com/index.json'),
-  StatuspageIOService('twilio', 'Twilio',  'https://status.twilio.com/index.json')
+  GithubService(),
+  StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com'),
+  StatuspageIOService('quay', 'Quay',  'http://status.quay.io'),
+  StatuspageIOService('circleci', 'CircleCI',  'https://circleci.statuspage.io'),
+  StatuspageIOService('vimeo', 'Vimeo',  'http://www.vimeostatus.com'),
+  StatuspageIOService('travisci', 'TravisCI',  'https://www.traviscistatus.com'),
+  StatuspageIOService('uservoice', 'UserVoice',  'https://status.uservoice.com'),
+  StatuspageIOService('hipchat', 'HipChat',  'https://status.hipchat.com'),
+  StatuspageIOService('newrelic', 'New Relic',  'https://status.newrelic.com'),
+  StatuspageIOService('bitbucket', 'Bitbucket',  'http://status.bitbucket.org'),
+  StatuspageIOService('disqus', 'Disqus',  'https://status.disqus.com'),
+  StatuspageIOService('kickstarter', 'Kickstarter',  'http://status.kickstarter.com'),
+  StatuspageIOService('kmstatus', 'KMstatus',  'https://kmstatus.com'),
+  StatuspageIOService('gotomeeting', 'Goto Meeting',  'http://status.gotomeeting.com'),
+  StatuspageIOService('parse', 'Parse',  'https://status.parse.com'),
+  StatuspageIOService('twilio', 'Twilio',  'https://status.twilio.com')
 ];
 
 // data Key = String
@@ -44,9 +44,13 @@ function Service(key, label, url, parser) {
 }
 
 // data GithubService = Service
-function GithubService(key, url) {
+function GithubService() {
 
+  const key = 'github';
   const label = 'Github';
+  const domain = 'https://status.github.com';
+  const path = '/api/messages.json';
+  const url = domain + path;
 
   // _mapColor :: String -> Color
   function _mapColor(indicator) {
@@ -62,14 +66,17 @@ function GithubService(key, url) {
   function _parseJSON(status) {
     const name = key;
     const parseColor = R.compose(_mapColor, R.prop('status'), R.head)
-    return Indicator(name, label, parseColor(status))
+    const parseMessage = R.compose(R.prop('body'), R.head);
+    return Indicator(name, label, parseColor(status), parseMessage(status), domain)
   }
 
   return Service(key, label, url, _parseJSON);
 }
 
 // data StatuspageIOService = Service
-function StatuspageIOService(key, label, url) {
+function StatuspageIOService(key, label, domain) {
+
+  const statusJSONURL = domain + '/index.json';
 
   // _mapColor :: String -> Color
   function _mapColor(indicator) {
@@ -83,12 +90,13 @@ function StatuspageIOService(key, label, url) {
 
   // parseJSON :: StatusPageIOJSON -> Indicator
   function _parseJSON(status) {
-    const color = _mapColor(status.status.indicator);
     const name = key;
-    return Indicator(name, label, color);
+    const color = _mapColor(status.status.indicator);
+    const message = status.status.description;
+    return Indicator(name, label, color, message, domain);
   }
 
-  return Service(key, label, url, _parseJSON);
+  return Service(key, label, statusJSONURL, _parseJSON);
 }
 
 module.exports = {

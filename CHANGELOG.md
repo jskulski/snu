@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 ### Changed
+- Renderers are now outside of CLI context
+
+### Added
+- Indications less than Green now show message and url.
+- Tests for renderers (render to console to visually verify)
+- Travis CI support
 
 ## [0.4.0] - 2016-06-11
 ### Changed

@@ -16,12 +16,21 @@ function Color(name) {
   return name;
 }
 
-// data Indicator = Key | Label | Color
-function Indicator(key, label, color) {
+// data Message = String
+// data Indicator = Key | Label | Color | Message | URL
+function Indicator(key, label, color, message, moreInfoUrl) {
+  invariant(key, 'Must have a valid key');
+  invariant(label, 'Must have a valid label');
+  invariant(color, 'Indicator must have a valid color');
+  invariant(message, 'Indicator must have a valid message');
+  invariant(moreInfoUrl, 'Indicator must have a valid moreInfoUrl');
+
   return {
     key: key,
     label: label,
-    color: color
+    color: color,
+    message: message,
+    moreInfoUrl: moreInfoUrl
   }
 }
 

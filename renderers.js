@@ -10,6 +10,8 @@ function renderToConsole(indicator) {
   else {
     console.log(chalk.bold.red('vvvvvvv'));
     console.log(chalk.red(indicator.label + ': NOT OK'));
+    console.log(chalk.red('Message: ' + indicator.message));
+    console.log(chalk.red('More information: ' + indicator.moreInfoUrl));
     console.log(chalk.bold.red('^^^^^^'));
   }
 }

@@ -5,18 +5,7 @@
 Your system depends on a lot.
 Know the whole picture.
 
-```
-$ snu
-Quay.io: OK
-Github.com: OK
-!!
-Flakr: MAJOR ISSUES:
-http://status.flakr.com/issue
-"We have temporarily disabled repository imports while we investigate an internal error."
-!!
-Circleci: OK
-Twilio: OK
-```
+![Screenshot](/screenshot.png)
 
 ## Installation and usage
 
@@ -49,18 +38,19 @@ PRs welcomed. Parsing other services especially.
 ### Roadmap
 
 Towards v1.0.0:
-- [ ] New Service: aws (How do we handle the multitudes of services/status? Two configs?)
-- [ ] Generate and read config from ~/.snurc
-- [ ] Give user more information
-- [x] Test and make sure errors are reported
-- [x] New Service: github
+- Features:
+    - [ ] New Service: aws (How do we handle the multitudes of services/status? Two configs?)
+    - [ ] Generate and read config from ~/.snurc
+    - [x] Give user more information (messages and urls)
+    - [x] Test and make sure errors are reported
+    - [x] New Service: github
 
-Features Wishlist:
-- [ ] Verbose option (tell me just about whats broken vs full report)
+- Features Stretch:
+    - [ ] Verbose option (tell me just about whats broken vs full report vs exit status?)
 
-Engineering Wishlist:
-- [ ] Color.green over Color('green')
-- [x] Move non-cli code from cli.js to snu.js
+- Engineering Wishlist:
+    - [ ] Color.green over Color('green')
+    - [x] Move non-cli code from cli.js to snu.js
 
 ## License
 
