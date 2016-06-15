@@ -6,6 +6,7 @@ const Color = require('./snu').Color;
 const Indicator = require('./snu').Indicator;
 
 const AllServices = [
+  HerokuService(),
   GithubService(),
   StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com'),
   StatuspageIOService('quay', 'Quay',  'http://status.quay.io'),
@@ -99,8 +100,38 @@ function StatuspageIOService(key, label, domain) {
   return Service(key, label, statusJSONURL, _parseJSON);
 }
 
+
+function HerokuService() {
+
+  const key = 'heroku';
+  const label = 'Heroku';
+  const domain = 'https://status.heroku.com';
+  const path = '/api/ui/availabilities';
+  const url = domain + path;
+
+  // _mapColor :: String -> Color
+  function _mapColor(color) {
+    const map = {
+      'green': Color('green'),
+    }
+    return map[color] ? map[color] : Color('red');
+  }
+
+  // parseJSON :: StatusPageIOJSON -> Indicator
+  function _parseJSON(status) {
+    const color = _mapColor(status.data[0].attributes.color);
+    const message = color == Color('green') ? 'OK' : 'Heroku is reporting issues.'
+    return Indicator(key, label, color, message, domain);
+  }
+
+  return Service(key, label, url, _parseJSON);
+
+}
+
+
 module.exports = {
   ALL: AllServices,
   StatuspageIOService: StatuspageIOService,
-  GithubService: GithubService
+  GithubService: GithubService,
+  HerokuService: HerokuService
 }
