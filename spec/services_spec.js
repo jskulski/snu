@@ -2,9 +2,9 @@ const nock = require('nock');
 const assert = require('chai').assert;
 const sinon = require('sinon');
 
-const gatherReport = require('./snu').gatherReport;
-const Indicator = require('./snu').Indicator;
-const Color = require('./snu').Color;
+const gatherReport = require('../snu').gatherReport;
+const Indicator = require('../snu').Indicator;
+const Color = require('../snu').Color;
 
 function shouldBe(expectedIndicator, done) {
   return function(actualIndicator) {
@@ -13,7 +13,7 @@ function shouldBe(expectedIndicator, done) {
   }
 }
 
-const StatuspageIOService = require('./services').StatuspageIOService;
+const StatuspageIOService = require('../services').StatuspageIOService;
 
 describe('StatuspageIO parsing', () => {
   const domain = 'http://status.somestatuspageiosubscriber.com'
@@ -80,7 +80,7 @@ describe('StatuspageIO parsing', () => {
 });
 
 
-const GithubService = require('./services').GithubService;
+const GithubService = require('../services').GithubService;
 
 describe('Github parser', () => {
   const key = 'github';
@@ -146,30 +146,3 @@ describe('Github parser', () => {
 
 });
 
-
-/**
- * These 'tests' spit out for the human eye to verify.
- */
-const renderToConsole = require('./renderers').renderToConsole;
-
-describe('Console Renderer', function() {
-  it('should render an GREEN event', () => {
-    const indicator = Indicator('key', 'Label', Color('green'), 'green msg', 'http://moreinfo.example.com')
-    renderToConsole(indicator);
-  });
-
-  it('should render an YELLOW event', () => {
-    const indicator = Indicator('key', 'Label', Color('yellow'), 'yellow msg', 'http://moreinfo.example.com/')
-    renderToConsole(indicator);
-  });
-
-  it('should render an RED event', () => {
-    const indicator = Indicator('key', 'Label', Color('red'), 'red msg', 'http://moreinfo.example.com/')
-    renderToConsole(indicator);
-  });
-
-  it('should render an BLACK event', () => {
-    const indicator = Indicator('key', 'Label', Color('black'), 'black msg', 'http://moreinfo.example.com/')
-    renderToConsole(indicator);
-  });
-});
