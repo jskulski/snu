@@ -6,7 +6,7 @@ const Services = require('./services');
 const gatherReport = require('./snu').gatherReport;
 const renderToConsole = require('./renderers').renderToConsole;
 
-function go(config) {
+function go(config, renderer) {
   var requestedServices;
   if (!config || !config.services || config.services.length == 0) {
     requestedServices = Services.ALL;
@@ -16,7 +16,7 @@ function go(config) {
     requestedServices = R.filter(inConfig, Services.ALL);
   }
 
-  const renderReport = R.curry(gatherReport)(renderToConsole);
+  const renderReport = R.curry(gatherReport)(renderer);
   R.map(renderReport, requestedServices)
 }
 
@@ -24,4 +24,4 @@ const config = {
   services: []
 }
 
-go(config);
+go(config, renderToConsole);
