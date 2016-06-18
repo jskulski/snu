@@ -8,11 +8,11 @@ const renderToConsole = require('./renderers').renderToConsole;
 
 function go(config) {
   var requestedServices;
-  if (!config || config.length == 0) {
+  if (!config || !config.services || config.services.length == 0) {
     requestedServices = Services.ALL;
   }
   else {
-    const inConfig = (svc) => R.contains(svc.key, config),
+    const inConfig = (svc) => R.contains(svc.key, config.services),
     requestedServices = R.filter(inConfig, Services.ALL);
   }
 
@@ -20,4 +20,8 @@ function go(config) {
   R.map(renderReport, requestedServices)
 }
 
-go([]);
+const config = {
+  services: []
+}
+
+go(config);
