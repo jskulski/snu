@@ -128,7 +128,6 @@ function HerokuService() {
 
 }
 
-
 module.exports = {
   ALL: AllServices,
   StatuspageIOService: StatuspageIOService,
