@@ -3,8 +3,8 @@ const assert = require('chai').assert;
 const sinon = require('sinon');
 
 const gatherReport = require('../snu').gatherReport;
-const Indicator = require('../snu').Indicator;
-const Color = require('../snu').Color;
+const Indicator = require('../data').Indicator;
+const Color = require('../data').Color;
 
 function shouldBe(expectedIndicator, done) {
   return function(actualIndicator) {

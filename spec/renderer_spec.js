@@ -1,8 +1,8 @@
 /**
  * These 'tests' spit out for the human eye to verify.
  */
-const Indicator = require('../snu').Indicator;
-const Color = require('../snu').Color;
+const Indicator = require('../data').Indicator;
+const Color = require('../data').Color;
 const renderToConsole = require('../renderers').renderToConsole;
 
 describe('Console Renderer', function() {

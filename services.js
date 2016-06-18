@@ -2,8 +2,8 @@
 const invariant = require('invariant');
 const R = require('ramda');
 
-const Color = require('./snu').Color;
-const Indicator = require('./snu').Indicator;
+const Color = require('./data').Color;
+const Indicator = require('./data').Indicator;
 
 const AllServices = [
   HerokuService(),
