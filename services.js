@@ -50,7 +50,7 @@ function GithubService() {
   const key = 'github';
   const label = 'Github';
   const domain = 'https://status.github.com';
-  const path = '/api/messages.json';
+  const path = '/api/last-message.json';
   const url = domain + path;
 
   // _mapColor :: String -> Color
@@ -66,8 +66,8 @@ function GithubService() {
   // parseJSON :: GithubJSON -> Indicator
   function _parseJSON(status) {
     const name = key;
-    const parseColor = R.compose(_mapColor, R.prop('status'), R.head)
-    const parseMessage = R.compose(R.prop('body'), R.head);
+    const parseColor = R.compose(_mapColor, R.prop('status'))
+    const parseMessage = R.prop('body');
     return Indicator(name, label, parseColor(status), parseMessage(status), domain)
   }
 

@@ -1,11 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased]
-### Changed
-- Renderers are now outside of CLI context
+## [0.7.0] - 2016-06-21
+- Github service switched to using last-message over parsing message history
 
+## [0.6.0] - 2016-06-14
+### Changed
+- Added Heroku as service
+- Capturing minor incidents for the first time!
+- Split up spec into separate files
+
+## [0.5.0] - 2016-06-14
 ### Added
+- Renderers are now outside of CLI context
 - Indications less than Green now show message and url.
 - Tests for renderers (render to console to visually verify)
 - Travis CI support

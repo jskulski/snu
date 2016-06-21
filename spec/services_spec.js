@@ -130,18 +130,11 @@ describe('Github parser', () => {
 
   function _JSON(status, message) {
     message = message || "Everything operating normally."
-    return [
-      {
-        "status": status,
-        "body": message,
-        "created_on": "2016-06-09T07:42:57Z"
-      },
-      {
-        "status": "minor",
-        "body": "We are investigating a minor service outage.",
-        "created_on": "2016-06-09T07:41:47Z"
-      }
-    ]
+    return {
+      "status": status,
+      "body": message,
+      "created_on": "2016-06-09T07:42:57Z"
+    }
   }
 
 });
