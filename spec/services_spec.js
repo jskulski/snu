@@ -86,7 +86,7 @@ describe('Github parser', () => {
   const key = 'github';
   const label = 'Github';
   const domain = 'https://status.github.com';
-  const path = '/api/messages.json';
+  const path = '/api/last-message.json';
 
   const service = GithubService()
 
