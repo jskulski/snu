@@ -1,8 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [0.7.0] - 2016-06-21
-- Github service switched to using last-message over parsing message history
+## [0.6.1] - 2016-06-21
+- Github service switched to using last-message over parsing message history.
+  The message history API started returning '[]'.
 
 ## [0.6.0] - 2016-06-14
 ### Changed
