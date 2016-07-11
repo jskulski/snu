@@ -1,5 +1,6 @@
 const assert = require('chai').assert;
 const goPieces = require('../snu').goPieces;
+const generateConfig = require('../config').generateConfig;
 const Service = require('../services').Service
 const _ = function() {}
 
@@ -35,21 +36,6 @@ describe('Configuration', function() {
 
 
   it.only('can generate a config file with current services', () => {
-    // generateConfig :: [ Services ] -> Config
-    const SERVICE_VISIBLE = true
-
-    function generateConfig(serviceDirectory) {
-      const R = require('ramda');
-
-      const serviceKeys = R.map(R.prop('key'), serviceDirectory);
-      const serviceVisibilityStatuses = R.times(() => SERVICE_VISIBLE, serviceKeys.length)
-      const servicesConfig = R.zipObj(serviceKeys, serviceVisibilityStatuses)
-
-      return {
-        services: servicesConfig
-      }
-    }
-
     generatedConfig = generateConfig(ServiceDirectory);
 
     assert.deepEqual(generatedConfig, {
@@ -61,10 +47,11 @@ describe('Configuration', function() {
     })
   });
 
-  // it.only('can write a generated configuration', () => {
+  it.only('can write a generated configuration', () => {
+    generatedConfig = generateConfig(ServiceDirectory);
 
-  //   generatedConfig = generateConfig(ServiceDirectory);
+    // saveConfigToDisk
 
 
-  // });
+  });
 });
