@@ -7,8 +7,12 @@ const gatherReport = require('./snu').gatherReport;
 const renderToConsole = require('./renderers').renderToConsole;
 
 
-const config = {
-  services: []
-}
+// const config = {
+//   services: []
+// }
+const config = require('./config');
+const cfg = config.loadConfig()
+console.log(cfg);
+// config.saveConfig()
 
-go(config, renderToConsole);
+go(cfg, renderToConsole);

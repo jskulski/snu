@@ -1,8 +1,18 @@
 const R = require('ramda');
 const nconf = require('nconf');
 const fs = require('fs');
+const AllServices = require('./services').ALL;
 
+const CONFIG_FILE_PATH = '/Users/jskulski/.snu.config.json';
 const SERVICE_VISIBLE = true
+const SERVICE_HIDDEN = false
+
+// defaultConfig :: Config
+function defaultConfig() {
+  return {
+    services: generateConfig(AllServices)
+  }
+}
 
 // generateConfig :: [ Services ] -> Config
 function generateConfig(serviceDirectory) {
@@ -16,22 +26,24 @@ function generateConfig(serviceDirectory) {
   }
 }
 
-// saveConfigToDisk :: Filepath -> Config -> [Side Effect] FS IO
-function saveConfigToDisk(filepath, config) {
-  nconf.argv()
-   .env()
-   .file({ file: filepath });
-
+// saveConfig :: Config? -> [Side Effect] FS IO
+function saveConfig(config) {
+  config = config || defaultConfig();
   nconf.set('services', config.services);
+  nconf.save();
+}
 
-  nconf.save(function (err) {
-    fs.readFile(filepath, function (err, data) {
-      console.dir(JSON.parse(data.toString()))
-    });
-  });
+// loadConfig :: [Side Effect FS] Config
+function loadConfig() {
+  nconf.argv()
+    .env()
+    .file({ file: CONFIG_FILE_PATH })
+    .defaults(defaultConfig());
+  return nconf.get('services');
 }
 
 module.exports = {
   generateConfig,
-  saveConfigToDisk
+  saveConfig,
+  loadConfig
 }

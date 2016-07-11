@@ -50,6 +50,6 @@ describe('Configuration', function() {
 
   it('can write a generated configuration', () => {
     generatedConfig = config.generateConfig(ServiceDirectory);
-    config.saveConfigToDisk('/Users/jskulski/.snu.config.json', generatedConfig);
+    config.saveConfig(generatedConfig);
   });
 });
