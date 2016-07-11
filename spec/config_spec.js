@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const goPieces = require('../src/snu').goPieces;
-const generateConfig = require('../src/config').generateConfig;
+const config = require('../src/config');
 const Service = require('../src/services').Service
 const _ = function() {}
 
@@ -15,7 +15,7 @@ const ServiceDirectory = [
   NotInConfigService
 ]
 
-const config = {
+const configJSON = {
   services: {
     'shown_service': true,
     'hidden_service': false,
@@ -32,12 +32,12 @@ describe('Configuration', function() {
       done();
     };
 
-    goPieces(config, _, gathererSpy, ServiceDirectory)
+    goPieces(configJSON, _, gathererSpy, ServiceDirectory)
   });
 
 
   it('can generate a config file with current services', () => {
-    generatedConfig = generateConfig(ServiceDirectory);
+    generatedConfig = config.generateConfig(ServiceDirectory);
 
     assert.deepEqual(generatedConfig, {
       services: {
@@ -49,10 +49,7 @@ describe('Configuration', function() {
   });
 
   it('can write a generated configuration', () => {
-    generatedConfig = generateConfig(ServiceDirectory);
-
-    // saveConfigToDisk
-
-
+    generatedConfig = config.generateConfig(ServiceDirectory);
+    config.saveConfigToDisk('/Users/jskulski/.snu.config.json', generatedConfig);
   });
 });

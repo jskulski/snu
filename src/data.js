@@ -1,5 +1,10 @@
 const invariant = require('invariant');
 
+// data Filepath = String
+// enum Visibility = VISIBLE | INVISIBLE
+// data ServiceConfig = [ Key: Visibility]
+// data Config = { ServiceConfig }
+
 // data Message = String
 
 // data Color = String
