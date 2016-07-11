@@ -14,12 +14,10 @@ const ServiceDirectory = [
   HiddenService,
 ]
 
-const configJSON = {
-  services: {
-    'shown_service': true,
-    'hidden_service': false,
-    // 'unknown_service': false
-  }
+const serviceConfigJSON = {
+  'shown': [ 'shown_service' ],
+  'hidden': [ 'hidden_service' ]
+  // 'unknown_service': false
 }
 
 describe('Configuration', function() {
@@ -31,7 +29,7 @@ describe('Configuration', function() {
       done();
     };
 
-    goPieces(configJSON, _, gathererSpy, ServiceDirectory)
+    goPieces(serviceConfigJSON, _, gathererSpy, ServiceDirectory)
   });
 
 
@@ -39,10 +37,8 @@ describe('Configuration', function() {
     generatedConfig = config.generateConfig([ ShownService ], [ HiddenService ]);
 
     assert.deepEqual(generatedConfig, {
-      services: {
-        shown: [ ShownService.key ],
-        hidden: [ HiddenService.key ]
-      }
+      shown: [ ShownService.key ],
+      hidden: [ HiddenService.key ]
     })
   });
 

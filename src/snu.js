@@ -13,14 +13,8 @@ function go(config, renderer) {
 function goPieces(config, renderer, gatherer, services) {
   var requestedServices;
 
-  if (!config || !config.services || config.services.length == 0) {
-    requestedServices = services;
-  }
-  else {
-    const configServices = R.compose(R.keys, R.filter(Boolean))(config.services);
-    const inConfig = (svc) => R.contains(svc.key, configServices);
-    requestedServices = R.filter(inConfig, services);
-  }
+  const inConfig = (svc) => R.contains(svc.key, config.shown);
+  requestedServices = R.filter(inConfig, services);
 
   const renderReport = R.curry(gatherer)(renderer);
   R.map(renderReport, requestedServices)

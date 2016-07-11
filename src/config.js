@@ -1,5 +1,6 @@
 const R = require('ramda');
 const nconf = require('nconf');
+const nconfYAML = require('nconf-yaml');
 const fs = require('fs');
 const AllServices = require('./services').ALL;
 
@@ -23,17 +24,15 @@ function generateConfig(shown, hidden) {
   const hiddenKeys = getKeys(hidden);
 
   return {
-    services: {
-      shown: shownKeys,
-      hidden: hiddenKeys
-    }
+    shown: shownKeys,
+    hidden: hiddenKeys
   }
 }
 
 // saveConfig :: Config? -> [Side Effect] FS IO
 function saveConfig(config) {
   config = config || defaultConfig();
-  nconf.set('services', config.services);
+  nconf.set('services', config);
   nconf.save();
 }
 
@@ -41,7 +40,10 @@ function saveConfig(config) {
 function loadConfig() {
   nconf.argv()
     .env()
-    .file({ file: CONFIG_FILE_PATH })
+    .file({
+      file: CONFIG_FILE_PATH,
+      format: nconfYAML
+    })
     .defaults(defaultConfig());
   return nconf.get('services');
 }
