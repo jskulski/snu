@@ -1,8 +1,9 @@
 const assert = require('chai').assert;
-const goPieces = require('../snu').goPieces;
-const generateConfig = require('../config').generateConfig;
-const Service = require('../services').Service
+const goPieces = require('../src/snu').goPieces;
+const generateConfig = require('../src/config').generateConfig;
+const Service = require('../src/services').Service
 const _ = function() {}
+
 
 const ShownService = Service('shown_service', 'Shown Service', 'http://www.example.com/', _)
 const HiddenService = Service('hidden_service', 'Hiddent Service', 'http://www.example.com/', _)
@@ -35,7 +36,7 @@ describe('Configuration', function() {
   });
 
 
-  it.only('can generate a config file with current services', () => {
+  it('can generate a config file with current services', () => {
     generatedConfig = generateConfig(ServiceDirectory);
 
     assert.deepEqual(generatedConfig, {
@@ -47,7 +48,7 @@ describe('Configuration', function() {
     })
   });
 
-  it.only('can write a generated configuration', () => {
+  it('can write a generated configuration', () => {
     generatedConfig = generateConfig(ServiceDirectory);
 
     // saveConfigToDisk

@@ -4,7 +4,7 @@
   "description": "Know the status of all the services you depend on",
   "main": "",
   "bin": {
-    "snu": "cli.js"
+    "snu": "src/cli.js"
   },
   "scripts": {
     "test": "mocha --debug spec/**/*_spec.js"
