@@ -13,6 +13,6 @@ const renderToConsole = require('./renderers').renderToConsole;
 const config = require('./config');
 const cfg = config.loadConfig()
 console.log(cfg);
-// config.saveConfig()
+config.saveConfig()
 
 go(cfg, renderToConsole);

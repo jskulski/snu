@@ -12,7 +12,6 @@ const NotInConfigService = Service('unknown_service', 'Unknown Service', 'http:/
 const ServiceDirectory = [
   ShownService,
   HiddenService,
-  NotInConfigService
 ]
 
 const configJSON = {
@@ -37,13 +36,12 @@ describe('Configuration', function() {
 
 
   it('can generate a config file with current services', () => {
-    generatedConfig = config.generateConfig(ServiceDirectory);
+    generatedConfig = config.generateConfig([ ShownService ], [ HiddenService ]);
 
     assert.deepEqual(generatedConfig, {
       services: {
-        'shown_service': true,
-        'hidden_service': true,
-        'unknown_service': true
+        shown: [ ShownService.key ],
+        hidden: [ HiddenService.key ]
       }
     })
   });

@@ -9,20 +9,24 @@ const SERVICE_HIDDEN = false
 
 // defaultConfig :: Config
 function defaultConfig() {
-  return {
-    services: generateConfig(AllServices)
-  }
+  return generateConfig(AllServices);
 }
 
-// generateConfig :: [ Services ] -> Config
-function generateConfig(serviceDirectory) {
+// generateConfig :: [ Services ] -> [ Services ] -> Config
+function generateConfig(shown, hidden) {
 
-  const serviceKeys = R.map(R.prop('key'), serviceDirectory);
-  const serviceVisibilityStatuses = R.times(() => SERVICE_VISIBLE, serviceKeys.length)
-  const servicesConfig = R.zipObj(serviceKeys, serviceVisibilityStatuses)
+  shown = shown || [];
+  hidden = hidden || [];
+
+  const getKeys = R.map(R.prop('key'));
+  const shownKeys = getKeys(shown);
+  const hiddenKeys = getKeys(hidden);
 
   return {
-    services: servicesConfig
+    services: {
+      shown: shownKeys,
+      hidden: hiddenKeys
+    }
   }
 }
 
