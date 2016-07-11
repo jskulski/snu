@@ -130,6 +130,7 @@ function HerokuService() {
 
 module.exports = {
   ALL: AllServices,
+  Service: Service,
   StatuspageIOService: StatuspageIOService,
   GithubService: GithubService,
   HerokuService: HerokuService

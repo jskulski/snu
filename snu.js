@@ -4,19 +4,25 @@ const fetch = require('node-fetch');
 
 const Services = require('./services');
 
+function go(config, renderer) {
+  goPieces(config, renderer, gatherReport, Services.ALL)
+}
+
 // data Config = [ ServiceKey ]
 // go :: Config -> Renderer -> Side Effects?
-function go(config, renderer) {
+function goPieces(config, renderer, gatherer, services) {
   var requestedServices;
+
   if (!config || !config.services || config.services.length == 0) {
-    requestedServices = Services.ALL;
+    requestedServices = services;
   }
   else {
-    const inConfig = (svc) => R.contains(svc.key, config.services)
-    requestedServices = R.filter(inConfig, Services.ALL);
+    const configServices = R.compose(R.keys, R.filter(Boolean))(config.services);
+    const inConfig = (svc) => R.contains(svc.key, configServices);
+    requestedServices = R.filter(inConfig, services);
   }
 
-  const renderReport = R.curry(gatherReport)(renderer);
+  const renderReport = R.curry(gatherer)(renderer);
   R.map(renderReport, requestedServices)
 }
 
@@ -31,5 +37,6 @@ function gatherReport(renderer, service) {
 
 module.exports = {
   go,
+  goPieces,
   gatherReport
 }
