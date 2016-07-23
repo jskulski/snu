@@ -4,7 +4,6 @@ const nconfYAML = require('nconf-yaml');
 const fs = require('fs');
 const AllServices = require('./services').ALL;
 
-const CONFIG_FILE_PATH = '/Users/jskulski/.snu.config.json';
 const SERVICE_VISIBLE = true
 const SERVICE_HIDDEN = false
 
@@ -29,22 +28,29 @@ function generateConfig(shown, hidden) {
   }
 }
 
+// setOptions :: Filepath -> [Side Effects] Global Mutation
+function setOptions(filePath) {
+  nconf.argv()
+    .env()
+    .file({
+      file: filePath,
+      format: nconfYAML
+    })
+    .defaults({'services': defaultConfig()});
+}
+
 // saveConfig :: Config? -> [Side Effect] FS IO
-function saveConfig(config) {
+function saveConfig(config, filePath) {
+  setOptions(filePath);
+
   config = config || defaultConfig();
   nconf.set('services', config);
   nconf.save();
 }
 
 // loadConfig :: [Side Effect FS] Config
-function loadConfig() {
-  nconf.argv()
-    .env()
-    .file({
-      file: CONFIG_FILE_PATH,
-      format: nconfYAML
-    })
-    .defaults(defaultConfig());
+function loadConfig(filePath) {
+  setOptions(filePath);
   return nconf.get('services');
 }
 

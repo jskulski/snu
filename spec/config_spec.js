@@ -1,9 +1,11 @@
+const nconf = require('nconf');
 const assert = require('chai').assert;
+const tempfile = require('tempfile');
+
 const goPieces = require('../src/snu').goPieces;
 const config = require('../src/config');
 const Service = require('../src/services').Service
 const _ = function() {}
-
 
 const ShownService = Service('shown_service', 'Shown Service', 'http://www.example.com/', _)
 const HiddenService = Service('hidden_service', 'Hiddent Service', 'http://www.example.com/', _)
@@ -42,8 +44,13 @@ describe('Configuration', function() {
     })
   });
 
-  it('can write a generated configuration', () => {
+  it.only('can write a generated configuration then read from it', () => {
+    tmpFilePath = tempfile('.yml')
     generatedConfig = config.generateConfig(ServiceDirectory);
-    config.saveConfig(generatedConfig);
+
+    config.saveConfig(generatedConfig, tmpFilePath);
+    storedConfig = config.loadConfig(tmpFilePath);
+
+    assert.deepEqual(storedConfig, generatedConfig);
   });
 });

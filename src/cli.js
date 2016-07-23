@@ -7,12 +7,10 @@ const gatherReport = require('./snu').gatherReport;
 const renderToConsole = require('./renderers').renderToConsole;
 
 
-// const config = {
-//   services: []
-// }
 const config = require('./config');
-const cfg = config.loadConfig()
-console.log(cfg);
-// config.saveConfig(cfg) // saves default if not loaded
+const CONFIG_FILE_PATH = '/Users/jskulski/.snu.config.json';
+
+const cfg = config.loadConfig(CONFIG_FILE_PATH);
+config.saveConfig(cfg, CONFIG_FILE_PATH);
 
 go(cfg, renderToConsole);
