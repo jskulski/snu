@@ -14,7 +14,6 @@ const AllServices = [
   StatuspageIOService('vimeo', 'Vimeo',  'http://www.vimeostatus.com'),
   StatuspageIOService('travisci', 'TravisCI',  'https://www.traviscistatus.com'),
   StatuspageIOService('uservoice', 'UserVoice',  'https://status.uservoice.com'),
-  StatuspageIOService('hipchat', 'HipChat',  'https://status.hipchat.com'),
   StatuspageIOService('newrelic', 'New Relic',  'https://status.newrelic.com'),
   StatuspageIOService('bitbucket', 'Bitbucket',  'http://status.bitbucket.org'),
   StatuspageIOService('disqus', 'Disqus',  'https://status.disqus.com'),
