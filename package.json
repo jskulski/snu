@@ -1,6 +1,6 @@
 {
   "name": "snu",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Know the status of all the services you depend on",
   "main": "",
   "bin": {
