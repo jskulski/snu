@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 
-const Color = require('./snu').Color;
+const Color = require('./data').Color;
 
 // renderToConsole :: Indicator -> ConsoleIO (Side effect)
 function renderToConsole(indicator) {

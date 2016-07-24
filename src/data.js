@@ -1,22 +1,18 @@
 const invariant = require('invariant');
-const fetch = require('node-fetch');
 
-// gatherReport :: Renderer -> Service -> Indicator (Side effect)
-function gatherReport(renderer, service) {
-  fetch(service.url)
-    .then((resp) => resp.json()) // TODO: pass promise around to allow other methods than JSON?
-    .then(service.parser)
-    .then(renderer)
-    .catch((error) => console.log('error fetching '+ service.key +': ' + error));
-}
+// data Filepath = String
+// enum Visibility = VISIBLE | INVISIBLE
+// data ServiceConfig = [ Key: Visibility]
+// data Config = { ServiceConfig }
 
-// data = 'green' || 'yellow' || 'red'
+// data Message = String
+
+// data Color = String
 function Color(name) {
   invariant(name == 'green' || name == 'yellow' || name == 'red' || name == 'black', 'Color name not appropriate');
   return name;
 }
 
-// data Message = String
 // data Indicator = Key | Label | Color | Message | URL
 function Indicator(key, label, color, message, moreInfoUrl) {
   invariant(key, 'Must have a valid key');
@@ -35,7 +31,6 @@ function Indicator(key, label, color, message, moreInfoUrl) {
 }
 
 module.exports = {
-  gatherReport,
-  Indicator,
-  Color
+    Color,
+    Indicator
 }

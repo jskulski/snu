@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## Unreleased
+- Added reading from configuration
+- Added configuration generation
 - Running tests before commit.
 
 ## [0.6.2] - 2016-06-21

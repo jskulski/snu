@@ -1,9 +1,9 @@
 /**
  * These 'tests' spit out for the human eye to verify.
  */
-const Indicator = require('../snu').Indicator;
-const Color = require('../snu').Color;
-const renderToConsole = require('../renderers').renderToConsole;
+const Indicator = require('../src/data').Indicator;
+const Color = require('../src/data').Color;
+const renderToConsole = require('../src/renderers').renderToConsole;
 
 describe('Console Renderer', function() {
   it('should render an GREEN event', () => {

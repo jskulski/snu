@@ -2,9 +2,9 @@ const nock = require('nock');
 const assert = require('chai').assert;
 const sinon = require('sinon');
 
-const gatherReport = require('../snu').gatherReport;
-const Indicator = require('../snu').Indicator;
-const Color = require('../snu').Color;
+const gatherReport = require('../src/snu').gatherReport;
+const Indicator = require('../src/data').Indicator;
+const Color = require('../src/data').Color;
 
 function shouldBe(expectedIndicator, done) {
   return function(actualIndicator) {
@@ -13,7 +13,7 @@ function shouldBe(expectedIndicator, done) {
   }
 }
 
-const StatuspageIOService = require('../services').StatuspageIOService;
+const StatuspageIOService = require('../src/services').StatuspageIOService;
 
 describe('StatuspageIO parsing', () => {
   const domain = 'http://status.somestatuspageiosubscriber.com'
@@ -80,7 +80,7 @@ describe('StatuspageIO parsing', () => {
 });
 
 
-const GithubService = require('../services').GithubService;
+const GithubService = require('../src/services').GithubService;
 
 describe('Github parser', () => {
   const key = 'github';
@@ -140,7 +140,7 @@ describe('Github parser', () => {
 });
 
 
-const HerokuService = require('../services').HerokuService;
+const HerokuService = require('../src/services').HerokuService;
 
 describe('Heroku parse', () => {
 
