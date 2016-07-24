@@ -9,7 +9,7 @@ function createProvider() {
         .argv()
         .defaults({
             'init': false,
-            'config-filepath': path.join(homeDir(), '.snurc'),
+            'config-filepath': path.join(homeDir(), '.snurc.yml'),
             'show-quick-help': true,
             'show-help': false
         });
