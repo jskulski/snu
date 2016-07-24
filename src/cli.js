@@ -6,11 +6,18 @@ const go = require('./snu').go;
 const gatherReport = require('./snu').gatherReport;
 const renderToConsole = require('./renderers').renderToConsole;
 
+const cliConfig = require('./cli_config');
+const servicesConfig = require('./services_config');
 
-const config = require('./services_config');
-const CONFIG_FILE_PATH = '/Users/jskulski/.snurc';
+// TODO: this should be in cli_config.js
+const servicesConfigFilePath = cliConfig['config-filepath'];
+const initializeSnuRC = cliConfig['init'];
+const showQuickHelp = cliConfig['quick-help'];
+const showHelp = cliConfig['help'];
 
-const cfg = config.loadConfig(CONFIG_FILE_PATH);
-config.saveConfig(cfg, CONFIG_FILE_PATH);
+if (initializeSnuRC) {
+    servicesConfig.saveDefaultConfig(servicesConfigFilePath);
+}
 
+const cfg = servicesConfig.loadConfig(servicesConfigFilePath);
 go(cfg, renderToConsole);

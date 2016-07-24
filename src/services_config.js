@@ -39,6 +39,14 @@ function setOptions(filePath) {
     .defaults({'services': defaultConfig()});
 }
 
+// saveDefaultConfig :: Config? -> [Side Effect] FS IO
+function saveDefaultConfig(filePath) {
+  setOptions(filePath);
+
+  nconf.set('services', defaultConfig());
+  nconf.save();
+}
+
 // saveConfig :: Config? -> [Side Effect] FS IO
 function saveConfig(config, filePath) {
   setOptions(filePath);
@@ -57,5 +65,6 @@ function loadConfig(filePath) {
 module.exports = {
   generateConfig,
   saveConfig,
+  saveDefaultConfig,
   loadConfig
 }
