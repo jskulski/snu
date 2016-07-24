@@ -3,7 +3,7 @@ const assert = require('chai').assert;
 const tempfile = require('tempfile');
 
 const goPieces = require('../src/snu').goPieces;
-const config = require('../src/config');
+const config = require('../src/services_config');
 const Service = require('../src/services').Service
 const _ = function() {}
 
@@ -44,7 +44,7 @@ describe('Configuration', function() {
     })
   });
 
-  it.only('can write a generated configuration then read from it', () => {
+  it('can write a generated configuration then read from it', () => {
     tmpFilePath = tempfile('.yml')
     generatedConfig = config.generateConfig(ServiceDirectory);
 
