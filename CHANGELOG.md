@@ -1,10 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## Unreleased
-- Added reading from configuration
-- Added configuration generation
-- Running tests before commit.
+## [0.7.0] - 2016-07-23
+- Reading from ~/.snurc.yml or specified
+- Initializing to ~/.snurc.yml or specified
+- Updated docs and various engineering improvements
+
+## [0.6.3] - 2016-07-23
+- Removed HipChat as service (moved to proprietary system from statuspage.io)
 
 ## [0.6.2] - 2016-06-21
 - Updating path in tests to mock github path.

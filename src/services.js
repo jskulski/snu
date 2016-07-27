@@ -5,7 +5,7 @@ const R = require('ramda');
 const Color = require('./data').Color;
 const Indicator = require('./data').Indicator;
 
-const AllServices = [
+const ShownByDefault = [
   HerokuService(),
   GithubService(),
   StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com'),
@@ -23,6 +23,11 @@ const AllServices = [
   StatuspageIOService('parse', 'Parse',  'https://status.parse.com'),
   StatuspageIOService('twilio', 'Twilio',  'https://status.twilio.com')
 ];
+const HiddenByDefault = [
+
+]
+
+const AllServices = R.union(ShownByDefault, HiddenByDefault)
 
 // data Key = String
 // data URL = String
@@ -129,6 +134,8 @@ function HerokuService() {
 
 module.exports = {
   ALL: AllServices,
+  ShownByDefault: ShownByDefault,
+  HiddenByDefault: HiddenByDefault,
   Service: Service,
   StatuspageIOService: StatuspageIOService,
   GithubService: GithubService,

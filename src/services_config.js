@@ -2,14 +2,14 @@ const R = require('ramda');
 const nconf = require('nconf');
 const nconfYAML = require('nconf-yaml');
 const fs = require('fs');
-const AllServices = require('./services').ALL;
+const Services = require('./services').ALL;
 
 const SERVICE_VISIBLE = true
 const SERVICE_HIDDEN = false
 
 // defaultConfig :: Config
 function defaultConfig() {
-  return generateConfig(AllServices);
+  return generateConfig(Services.ShownByDefault, Services.HiddenByDefault);
 }
 
 // generateConfig :: [ Services ] -> [ Services ] -> Config

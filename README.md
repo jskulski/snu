@@ -5,9 +5,9 @@
 Your system depends on a lot.
 Know the whole picture.
 
-![Screenshot](/screenshot.png)
+![Screenshot of snu report](/imgs/hero.png)
 
-## Installation and usage
+## Installation
 
 Prerequisites: reasonablely recent versions of `node`, `npm`
 
@@ -16,12 +16,24 @@ $ npm install -g snu
 /usr/local/bin/snu -> /usr/local/lib/node_modules/snu/cli.js
 /usr/local/lib
 └── snu@0.2.0
-
-$ snu
-Quay.io: OK
-Aptible: OK
-CircleCI: OK
 ```
+
+## Usage
+
+By itself, `snu` will show you all services it knows about:
+
+```
+![Screenshot of snu report from cli](/imgs/snu.png)
+```
+
+To customize the services you care about, use `snu --init`.
+
+```
+[Screenshot of .snurc.yml creation and editing](/imgs/snu-init.png)
+```
+
+This will create a `$HOME/.snurc.yml` file.
+Edit this file by hand to choose which services you want reports about.
 
 ## Developer
 
@@ -34,13 +46,12 @@ PRs welcomed. Parsing other services especially.
 `npm install --dev`
 `npm test`
 
-
 ### Roadmap
 
 Towards v1.0.0:
 - Features:
     - [ ] New Service: aws (How do we handle the multitudes of services/status? Two configs?)
-    - [ ] Generate and read config from ~/.snurc
+    - [x] Generate and read config from ~/.snurc
     - [x] Give user more information (messages and urls)
     - [x] Test and make sure errors are reported
     - [x] New Service: github
