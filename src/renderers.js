@@ -2,8 +2,8 @@ const chalk = require('chalk');
 
 const Color = require('./data').Color;
 
-// renderToConsole :: Indicator -> ConsoleIO (Side effect)
-function renderToConsole(indicator) {
+// renderIndicator :: Indicator -> ConsoleIO (Side effect)
+function renderIndicator(indicator) {
   if (indicator.color == Color('green')) {
     console.log(chalk.green(indicator.label + ': OK'));
   }
@@ -17,5 +17,5 @@ function renderToConsole(indicator) {
 }
 
 module.exports = {
-    renderToConsole
+    renderIndicator
 }
