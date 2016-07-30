@@ -23,9 +23,7 @@ $ npm install -g snu
 By itself, `snu` will show a default list of services.
 To customize the services you care about, use `snu --init`.
 
-```
 [Screenshot of .snurc.yml creation and editing](/imgs/snuyml.gif)
-```
 
 This will create a `$HOME/.snurc.yml` file.
 Edit this file by hand to choose which services you want reports about.
