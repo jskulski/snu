@@ -1,9 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [0.7.0] - 2016-07-23
+## [0.7.0] - 2016-07-30
 - Reading from ~/.snurc.yml or specified
 - Initializing to ~/.snurc.yml or specified
+- Exit codes introduced and full end to end tests
 - Updated docs and various engineering improvements
 
 ## [0.6.3] - 2016-07-23

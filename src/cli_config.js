@@ -8,10 +8,11 @@ function createProvider() {
     provider
         .argv()
         .defaults({
+            'check-services': true,
             'init': false,
             'config-filepath': path.join(homeDir(), '.snurc.yml'),
-            'show-quick-help': true,
-            'show-help': false
+            'display-config-status': true,
+            'help': false
         });
 
     return provider;

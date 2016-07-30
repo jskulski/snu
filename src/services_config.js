@@ -2,7 +2,7 @@ const R = require('ramda');
 const nconf = require('nconf');
 const nconfYAML = require('nconf-yaml');
 const fs = require('fs');
-const Services = require('./services').ALL;
+const Services = require('./services');
 
 const SERVICE_VISIBLE = true
 const SERVICE_HIDDEN = false

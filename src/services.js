@@ -8,23 +8,22 @@ const Indicator = require('./data').Indicator;
 const ShownByDefault = [
   HerokuService(),
   GithubService(),
-  StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com'),
   StatuspageIOService('quay', 'Quay',  'http://status.quay.io'),
+  StatuspageIOService('aptible', 'Aptible',  'http://status.aptible.com'),
   StatuspageIOService('circleci', 'CircleCI',  'https://circleci.statuspage.io'),
-  StatuspageIOService('vimeo', 'Vimeo',  'http://www.vimeostatus.com'),
-  StatuspageIOService('travisci', 'TravisCI',  'https://www.traviscistatus.com'),
-  StatuspageIOService('uservoice', 'UserVoice',  'https://status.uservoice.com'),
   StatuspageIOService('newrelic', 'New Relic',  'https://status.newrelic.com'),
-  StatuspageIOService('bitbucket', 'Bitbucket',  'http://status.bitbucket.org'),
-  StatuspageIOService('disqus', 'Disqus',  'https://status.disqus.com'),
-  StatuspageIOService('kickstarter', 'Kickstarter',  'http://status.kickstarter.com'),
-  StatuspageIOService('kmstatus', 'KMstatus',  'https://kmstatus.com'),
-  StatuspageIOService('gotomeeting', 'Goto Meeting',  'http://status.gotomeeting.com'),
-  StatuspageIOService('parse', 'Parse',  'https://status.parse.com'),
   StatuspageIOService('twilio', 'Twilio',  'https://status.twilio.com')
 ];
 const HiddenByDefault = [
-
+  StatuspageIOService('travisci', 'TravisCI',  'https://www.traviscistatus.com'),
+  StatuspageIOService('vimeo', 'Vimeo',  'http://www.vimeostatus.com'),
+  StatuspageIOService('kickstarter', 'Kickstarter',  'http://status.kickstarter.com'),
+  StatuspageIOService('gotomeeting', 'Goto Meeting',  'http://status.gotomeeting.com'),
+  StatuspageIOService('disqus', 'Disqus',  'https://status.disqus.com'),
+  StatuspageIOService('parse', 'Parse',  'https://status.parse.com'),
+  StatuspageIOService('bitbucket', 'Bitbucket',  'http://status.bitbucket.org'),
+  StatuspageIOService('uservoice', 'UserVoice',  'https://status.uservoice.com'),
+  StatuspageIOService('kmstatus', 'KMstatus',  'https://kmstatus.com'),
 ]
 
 const AllServices = R.union(ShownByDefault, HiddenByDefault)
