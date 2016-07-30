@@ -43,7 +43,7 @@ describe('Command Line Interface', () => {
         assert(sh.cat(TMP_SNU_RC_FILEPATH).stdout == testContent, 'Content of config file was mutated')
     });
 
-    it.only('displays help if you ask', () => {
+    it('displays help if you ask', () => {
         const result = sh.exec(['node', 'src/cli.js', '--help'].join(' '));
 
         assert(result.code === EXITS.SHOWED_INFO, 'Did not exit with SHOWED INFO status')
