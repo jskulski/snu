@@ -20,16 +20,11 @@ $ npm install -g snu
 
 ## Usage
 
-By itself, `snu` will show you all services it knows about:
-
-```
-![Screenshot of snu report from cli](/imgs/snu.png)
-```
-
+By itself, `snu` will show a default list of services.
 To customize the services you care about, use `snu --init`.
 
 ```
-[Screenshot of .snurc.yml creation and editing](/imgs/snu-init.png)
+[Screenshot of .snurc.yml creation and editing](/imgs/snuyml.gif)
 ```
 
 This will create a `$HOME/.snurc.yml` file.
