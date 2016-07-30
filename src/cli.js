@@ -45,7 +45,7 @@ if (initializeConfigFile) {
 if (!sh.test('-f', servicesConfigFilePath)) {
     render([
         "",
-        "NOTE: Running the command `snu --init` will initialize a config file for you.",
+        "NOTE: Running the command `snu --init` will initialize a config file.",
         "You can edit it by hand customize what services are checked.",
         ""
     ].join("\n"));
