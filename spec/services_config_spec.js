@@ -4,7 +4,7 @@ const tempfile = require('tempfile');
 
 const goPieces = require('../src/snu').goPieces;
 const config = require('../src/services_config');
-const Service = require('../src/services').Service
+const Service = require('../src/services/service');
 const _ = function() {}
 
 const ShownService = Service('shown_service', 'Shown Service', 'http://www.example.com/', _)

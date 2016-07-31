@@ -35,11 +35,7 @@ const AllServices = R.union(ShownByDefault, HiddenByDefault)
 
 
 module.exports = {
-  ALL: AllServices,
+  All: AllServices,
   ShownByDefault: ShownByDefault,
   HiddenByDefault: HiddenByDefault,
-  Service: Service,
-  StatuspageIOService: StatuspageIOService,
-  GithubService: GithubService,
-  HerokuService: HerokuService
 }

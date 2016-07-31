@@ -28,6 +28,4 @@ function StatuspageIOService(key, label, domain) {
   return Service(key, label, statusJSONURL, _parseJSON);
 }
 
-console.log(StatuspageIOService)
-
 module.exports = StatuspageIOService
