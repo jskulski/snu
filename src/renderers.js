@@ -22,5 +22,5 @@ function renderIndicator(indicator) {
 
 module.exports = {
   render,
-    renderIndicator
+  renderIndicator
 }
