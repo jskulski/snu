@@ -13,7 +13,7 @@ function shouldBe(expectedIndicator, done) {
   }
 }
 
-const StatuspageIOService = require('../src/services').StatuspageIOService;
+const StatuspageIOService = require('../src/services/statuspageio');
 
 describe('StatuspageIO parsing', () => {
   const domain = 'http://status.somestatuspageiosubscriber.com'

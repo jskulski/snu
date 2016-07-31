@@ -5,6 +5,9 @@ const R = require('ramda');
 const Color = require('./data').Color;
 const Indicator = require('./data').Indicator;
 
+const Service = require('./services/service');
+const StatuspageIOService = require('./services/statuspageio');
+
 const ShownByDefault = [
   HerokuService(),
   GithubService(),
@@ -28,24 +31,6 @@ const HiddenByDefault = [
 
 const AllServices = R.union(ShownByDefault, HiddenByDefault)
 
-// data Key = String
-// data URL = String
-// data Label = String
-// data Parser = JSON -> Indicator
-// data Service = Key | Label | URL | Parser
-function Service(key, label, url, parser) {
-  invariant(key, 'Service needs valid key');
-  invariant(label, 'Service needs valid label')
-  invariant(url, 'Service needs valid url');
-  invariant(parser, 'Service needs valid parser');
-
-  return {
-    'key': key,
-    'url': url,
-    'label': label,
-    'parser': parser,
-  }
-}
 
 // data GithubService = Service
 function GithubService() {
@@ -75,32 +60,6 @@ function GithubService() {
   }
 
   return Service(key, label, url, _parseJSON);
-}
-
-// data StatuspageIOService = Service
-function StatuspageIOService(key, label, domain) {
-
-  const statusJSONURL = domain + '/index.json';
-
-  // _mapColor :: String -> Color
-  function _mapColor(indicator) {
-    const map = {
-      'none': Color('green'),
-      'minor': Color('yellow'),
-      'major': Color('red'),
-    }
-    return map[indicator] ? map[indicator] : Color('black');
-  }
-
-  // parseJSON :: StatusPageIOJSON -> Indicator
-  function _parseJSON(status) {
-    const name = key;
-    const color = _mapColor(status.status.indicator);
-    const message = status.status.description;
-    return Indicator(name, label, color, message, domain);
-  }
-
-  return Service(key, label, statusJSONURL, _parseJSON);
 }
 
 
