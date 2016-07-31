@@ -2,10 +2,10 @@ const invariant = require('invariant');
 const R = require('ramda');
 const fetch = require('node-fetch');
 
-const Services = require('./services');
+const AllServices = require('./services').All;
 
 function go(config, renderer) {
-  goPieces(config, renderer, gatherReport, Services.ALL)
+  goPieces(config, renderer, gatherReport, AllServices)
 }
 
 // data Config = [ ServiceKey ]

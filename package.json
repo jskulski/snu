@@ -7,7 +7,7 @@
     "snu": "src/cli.js"
   },
   "scripts": {
-    "test": "mocha --debug spec/**/*_spec.js"
+    "test": "mocha --debug spec/**_spec.js spec/**/*_spec.js"
   },
   "repository": {
     "type": "git",

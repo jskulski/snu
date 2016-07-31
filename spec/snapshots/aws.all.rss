@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Amazon Web Services Service Status</title>
+    <link>http://status.aws.amazon.com/</link>
+    <link rel="alternate" href="http://status.aws.amazon.com/rss/all.rss" type="application/rss+xml" title="Amazon Web Services Status Feed"/>
+    <title type="text">Current service status feed for Amazon Web Services.</title>
+    <language>en-us</language>
+    <pubDate>Sun, 31 Jul 2016 09:44:11 PDT</pubDate>
+    <updated>Sun, 31 Jul 2016 09:44:11 PDT</updated>
+    <generator>AWS Service Health Dashboard RSS Generator</generator>
+    <ttl>5</ttl>
+
+	 
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Connectivity Issues</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Sun, 31 Jul 2016 09:41:45 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#vpc-ap-southeast-1_1469983305</guid>
+	  <description>Between 7:10 AM and 8:57 AM PDT we experienced increased packet loss for some VPN connections to the AP-SOUTHEAST-1 Region. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Connectivity Issues</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Sun, 31 Jul 2016 09:35:17 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#directconnect-ap-southeast-1_1469982917</guid>
+	  <description>Between 7:10 AM and 8:57 AM PDT we experienced increased packet loss for Direct Connect connections to the AP-SOUTHEAST-1 Region. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: [RESOLVED] Increased Error Rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:47:05 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#lambda-us-east-1_1469846825</guid>
+	  <description>Between 06:08 PM and 07:20 PM PDT, users experienced elevated error rates and latencies in the US-EAST-1 Region. The issue has been resolved and the service is operating normally. </description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased Error Rates for Amazon ECR Push / Pull APIs </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:14:00 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ecr-us-east-1_1469844840</guid>
+	  <description>Between 5:50 PM and 6:45 PM PDT we experienced an increased API error rate for push and pull APIs in the US-EAST-1 Region. The issue has been resolved and the service is now operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased Error Rates for Amazon ECR Push / Pull APIs </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:49:00 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ecr-us-east-1_1469843340</guid>
+	  <description>We can confirm increased API error rate for push and pull APIs in the US-EAST-1 Region and are currently working to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased Predict API Error Rates and Latencies </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:12:00 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#aml-us-east-1_1469844720</guid>
+	  <description>Between 5:40 PM PDT and 7:05 PM PDT we experienced an increased error rate and latencies for the Predict API in the US-EAST-1 Region. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased Predict API Error Rates and Latencies </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:42:00 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#aml-us-east-1_1469842920</guid>
+	  <description>We are investigating increased Predict API error rates and latencies in the US-EAST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Elevated error rates </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:16:09 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#management-console_1469844969</guid>
+	  <description>Between 5:53 PM and 6:45 PM PDT, users experienced increased errors impacting the use of the AWS Management Console. The issue has been resolved and the Console is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Elevated error rates </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:39:26 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#management-console_1469842766</guid>
+	  <description>We are investigating increased error rates for the AWS Management Console</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased Provisioning and Instance Registration Times </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:10:06 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#elb-us-east-1_1469844606</guid>
+	  <description>Between 6:04 PM and 6:54 PM PDT we experienced increased provisioning and instance registration times for load balancers in the US-EAST-1 Region. Connectivity to existing load balancers was not affected. The issue has been resolved and the service is operating normally. </description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased Provisioning and Instance Registration Times</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:31:17 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#elb-us-east-1_1469842277</guid>
+	  <description>We are investigating increased provisioning and instance registration times for load balancers in the US-EAST-1 Region. Connectivity to existing load balancers is not affected.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Increased API Error Rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 19:08:51 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-east-1_1469844531</guid>
+	  <description>Between 5:53 PM and 6:45 PM PDT we experienced increased error rates and latencies for the EC2 APIs in the US-EAST-1 Region. Running instances were not affected. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased API Error Rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:44:42 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-east-1_1469843082</guid>
+	  <description>We have identified the root cause for the increased error rates and latencies affecting the EC2 APIs and Management Console in the US-EAST-1 Region and are working to resolve the issue</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased API Error Rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 29 Jul 2016 18:08:07 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-east-1_1469840887</guid>
+	  <description>We are investigating increased error rates and latencies for the EC2 APIs in the US-EAST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: [RESOLVED] Network connectivity</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 26 Jul 2016 03:34:46 PDT</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-east-1_1469529286</guid>
+	  <description>Between 2:38 AM and 3:06 AM PDT we experienced connectivity issues for some instances in the US-EAST-1 Region. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+        
+  </channel>
+</rss>
