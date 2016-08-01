@@ -24,7 +24,7 @@ describe('AWS Service', () => {
   // const majorJSON = _JSON('major', 'major msg');
   // const unknownJSON = _JSON('unknown', 'unknown msg');
 
-  it.only('reports green if there has not been a new update', (done) => {
+  it('reports green if there has not been a new update', (done) => {
     api.reply(200, okXML);
     const expected = Indicator(service.key, service.label, Color('green'), 'ok msg', domain);
     const spy = sinon.spy(shouldBe(expected, done));
