@@ -23,8 +23,6 @@ function goPieces(config, renderer, gatherer, services) {
 // gatherReport :: Renderer -> Service -> Indicator (Side effect)
 function gatherReport(renderer, service) {
   fetch(service.url)
-    // .then((resp) => resp.json())
-    // .then(resp => resp.text())
     .then(service.parser)
     .then(renderer)
     .catch((error) => console.log('error fetching '+ service.key +': ' + error));

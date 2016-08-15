@@ -26,7 +26,7 @@ describe('AWS Service', () => {
 
   it('reports green if there has not been a new update', (done) => {
     api.reply(200, okXML);
-    const expected = Indicator(service.key, service.label, Color('green'), 'ok msg', domain);
+    const expected = Indicator(service.key, service.label, Color('green'), 'ok msg', domain + path);
     const spy = sinon.spy(shouldBe(expected, done));
 
     gatherReport(spy, service);

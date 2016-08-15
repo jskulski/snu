@@ -26,7 +26,12 @@ function HerokuService() {
     return Indicator(key, label, color, message, domain);
   }
 
-  return Service(key, label, url, _parseJSON);
+  // parse :: Promise Response -> Indicator
+  function parse(response) {
+    return response.json().then(_parseJSON)
+  }
+
+  return Service(key, label, url, parse);
 
 }
 

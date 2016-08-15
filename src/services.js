@@ -9,8 +9,10 @@ const Service = require('./services/service');
 const StatuspageIOService = require('./services/statuspageio');
 const HerokuService = require('./services/heroku');
 const GithubService = require('./services/github');
+const AwsService = require('./services/aws');
 
 const ShownByDefault = [
+  AwsService(),
   HerokuService(),
   GithubService(),
   StatuspageIOService('quay', 'Quay',  'http://status.quay.io'),

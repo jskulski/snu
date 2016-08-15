@@ -24,14 +24,19 @@ function GithubService() {
   }
 
   // parseJSON :: GithubJSON -> Indicator
-  function _parseJSON(status) {
+  function _parseToIndicator(status) {
     const name = key;
     const parseColor = R.compose(_mapColor, R.prop('status'))
     const parseMessage = R.prop('body');
     return Indicator(name, label, parseColor(status), parseMessage(status), domain)
   }
 
-  return Service(key, label, url, _parseJSON);
+  // parse :: Promise Response -> Indicator
+  const parse = function(response) {
+    return response.json(response).then(_parseToIndicator);
+  }
+
+  return Service(key, label, url, parse);
 }
 
 module.exports = GithubService

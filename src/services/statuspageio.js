@@ -25,7 +25,12 @@ function StatuspageIOService(key, label, domain) {
     return Indicator(name, label, color, message, domain);
   }
 
-  return Service(key, label, statusJSONURL, _parseJSON);
+  // parse :: Promise Response -> Indicator
+  function parse(response) {
+    return response.json().then(_parseJSON)
+  }
+
+  return Service(key, label, statusJSONURL, parse);
 }
 
 module.exports = StatuspageIOService
